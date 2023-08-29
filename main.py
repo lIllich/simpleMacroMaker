@@ -1,5 +1,13 @@
-import CommandList, MouseClick, TypeText, SendHotKey, Wait, WaitForPixel
-from listeners import KeyboardListener, MouseListener
+import CommandList
+import MouseClick
+import TypeText
+import SendHotKey
+import Wait 
+import WaitForPixel
+
+import KeyboardListener 
+import MouseListener
+
 import threading
 import sys
 
