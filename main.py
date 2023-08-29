@@ -1,4 +1,4 @@
-from command import CommandList, MouseClick, TypeText, TypeKey, Wait, WaitForPixel
+import CommandList, MouseClick, TypeText, SendHotKey, Wait, WaitForPixel
 from listeners import KeyboardListener, MouseListener
 import threading
 import sys
@@ -44,10 +44,10 @@ def program():
             text = str(input("\tText: "))
             command = TypeText(text)
         elif(choice == 3):  # Type Key
-            TypeKey.printPossibleOptions()
-            # print(TypeKey.keyListener())
+            SendHotKey.printPossibleOptions()
+            # print(SendHotKey.keyListener())
             key = str(input("\tSet key: "))
-            command = TypeKey(key)
+            command = SendHotKey(key)
         elif(choice == 4):  # Wait
             Wait.printPossibleOptions()
             ms = inputInteger("\tSet ms: ")
