@@ -3,7 +3,7 @@ from listeners import KeyboardListener, MouseListener
 import threading
 import sys
 
-DEBUG = 0
+DEBUG = 1
 
 def inputInteger(message):
     while True:
