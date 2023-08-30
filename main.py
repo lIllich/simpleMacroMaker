@@ -13,6 +13,8 @@ import sys
 
 DEBUG = 1
 
+# komentar
+
 def inputInteger(message):
     while True:
         try:
