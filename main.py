@@ -4,13 +4,13 @@ from KeyboardListener import KeyboardListener
 import threading
 import sys
 
-DEBUG = 1
-
 def program():
     cl = CommandList()
 
     # Incijalno dodavanje commandi u listu
-    CommandList.printPossibleOptions()
+    # print()
+    CommandList.printProgramOptions()
+    CommandList.printCommandOptions(new_line=False)
     while True:
         command = CommandList.chooseCommand()
         if command == 0:
@@ -18,7 +18,7 @@ def program():
             break
         elif command == -1:
             print("Invalid Input!")
-            CommandList.printPossibleOptions()
+            CommandList.printCommandOptions()
         else:
             cl.addCommand(command)
 
@@ -28,11 +28,11 @@ def program():
     # konačno zadavanje postavki i izvrsavanje
     ret = cl.executeCommands()
     if ret == 0:
-        print("Done!")
+        print("Status: Done!        ")
     elif ret == -1:
-        print("Suspended!")
+        print(f"Status: Suspended! Haven't found pixel for more then {cl.break_seconds} sec(s)")
     else:
-        print("Error!")
+        print("Status: Error!       ")
 
     return
 

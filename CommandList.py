@@ -17,12 +17,13 @@ class CommandList:
         self.commands.append(command)
 
     def executeCommands(self):
-        self.break_seconds = CustomUtilities.inputInteger("Loop timeout after X sec(s)(affects only WaitForPixel): ")
+        self.break_seconds = CustomUtilities.inputInteger("Timeout after X sec(s)(affects only WaitForPixel): ")
         self.iterations = CustomUtilities.inputInteger("Number of iterations: ")
         
         self.print()
+        print(f"Timeout: {self.break_seconds} sec(s)\nIteration(s): {self.iterations}")
         while True:
-            exec = str(input("\nExecute these commands? (Y/N): "), end='\r')
+            exec = str(input("\nExecute these commands? (Y/N): "))
             if(exec == "Y" or exec == "y"):
                 break
             elif(exec == "N" or exec == "n"):
@@ -32,6 +33,9 @@ class CommandList:
 
         if len(self.commands) < 1:
             return 0
+        
+        print()
+        print("Status: Executing...", end='\r')
         loop = 0
         while loop < self.iterations:
             for command in self.commands:
@@ -50,29 +54,44 @@ class CommandList:
             if (numerate == True):
                 print(f"{i}. ", end="")
             command.print()
+        print()
 
     def deleteCommand(self, command):
         del self.commands[command - 1]
 
-    def insertCommand(self, after_command):
+    def insertCommand(self, before):
+        self.printCommandOptions(new_line=False)
+        command = self.chooseCommand()
+        self.commands.insert(before - 1, command)
         pass
 
     @classmethod
-    def printPossibleOptions(cls):
+    def printProgramOptions(cls, new_line = True):
         print("Program Options:")
-        print("\tESC - Terminate While SetUp Or Execution")
-        print("\t0 - Print Command List")
+        print("\tESC - Terminate Program")
+        print("\t0 - Execute Command List (Print)")
+        if new_line == True:
+            print()
+
+    @classmethod
+    def printModifyMenu(cls, new_line = True):
+        print("Options: ")
+        print("\t0 - Execute Commands")
+        print("\t1 - Delete Command")
+        print("\t2 - Insert Command")
+        if new_line == True:
+            print()
+
+    @classmethod
+    def printCommandOptions(cls, new_line = True):
+        print("Possible Commands:")
         print("\t1 - Set Mouse Click")
         print("\t2 - Set Text To Type")
         print("\t3 - Set Key/Hot-Key To Press")
         print("\t4 - Set Milliseconds To Wait")
         print("\t5 - Wait For Pixel At X,Y To Be RGB")
-
-    @classmethod
-    def printModifyMenu(cls):
-        print("\t0 - Execute Commands")
-        print("\t1 - Delete Command")
-        print("\t2 - Insert Command")
+        if new_line == True:
+            print()
 
     @classmethod
     def chooseCommand(cls):
@@ -85,8 +104,7 @@ class CommandList:
             MouseClick.printPossibleOptions()
             print("\tSet position: ", end="", flush=True)
             ml = MouseListener()
-            att = ml.start()
-            button, x, y = att[0].name, (att[1]), (att[2])
+            button, x, y = ml.start()
             print(f"({x}, {y})")
             print(f"\tSet button: {button}")
             repeat = CustomUtilities.inputInteger("\tRepeat: ")
@@ -116,15 +134,15 @@ class CommandList:
         return command
     
     def modifyList(self):
-        self.printModifyMenu()
         while True:
-            modify = CustomUtilities.inputInteger("Execute/Delete/Insert: ")
+            self.printModifyMenu()
+            modify = CustomUtilities.inputInteger("Choose: ")
             if modify == 0:
                 break
             elif modify == 1:
                 self.deleteCommand(CustomUtilities.inputInteger("\tDelete command "))
             elif modify == 2:
-                self.insertCommand(CustomUtilities.inputInteger("\tInsert After Command "))
+                self.insertCommand(CustomUtilities.inputInteger("\tInsert Before Command "))
             else:
                 print("Error! Invalid Input!")
                 self.printModifyMenu()

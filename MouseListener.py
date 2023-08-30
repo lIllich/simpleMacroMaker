@@ -1,4 +1,4 @@
-import mouse
+from pynput import mouse
 
 class MouseListener:
     def __init__(self):
@@ -9,7 +9,7 @@ class MouseListener:
 
     def on_click(self, x, y, button, pressed):
         if pressed:
-            self.clicked_button = button
+            self.clicked_button = button.name
             self.x = x
             self.y = y
             self.listener.stop()
@@ -20,9 +20,3 @@ class MouseListener:
             ml.join()
 
         return self.clicked_button, self.x, self.y
-    
-    @classmethod
-    def extractAttributes(cls, attributes):
-        button = attributes[0]
-        
-        return (attributes[1], attributes[2], )

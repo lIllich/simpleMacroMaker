@@ -14,7 +14,7 @@ class WaitForPixel:
         call_time = datetime.now()
         while 1:
             if((datetime.now() - call_time).seconds > break_seconds):
-                return 1
+                return -1
             if(pyautogui.pixel(self.x, self.y) == (self.r, self.g, self.b)):
                 return 0
             time.sleep(self.s)
