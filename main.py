@@ -1,5 +1,5 @@
-from CommandList import CommandList
-from KeyboardListener import KeyboardListener 
+from classes.CommandList import CommandList
+from classes.KeyboardListener import KeyboardListener
 
 import threading
 import sys

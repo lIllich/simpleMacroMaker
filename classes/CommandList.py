@@ -5,7 +5,7 @@ from Wait import Wait
 from WaitForPixel import WaitForPixel
 
 from MouseListener import MouseListener
-import CustomUtilities
+import classes.CustomUtilities as CustomUtilities
 
 class CommandList:
     def __init__(self):
