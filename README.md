@@ -9,6 +9,13 @@
 - *Wait* - određuje se vrijeme izraženo u milisekundama koje će program provesti čekajući
 - *WaitForPixel* - određuje se pixel (x, y) za koji će se vršiti provjera pokazuje li boju (r, g, b), određuje se i vrijeme izraženo u milisekundama nakon kojega će se isponova vršiti provjera pixela
 
+## Potrebni moduli
+
+- mouse
+- keyboard
+- pynput
+- pyautogui
+
 ## Gašenje programa
 
 Program je moguće ugasiti u bilo kojem trenutku izvođenja, pritiskom na tipku **Esc**.
