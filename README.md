@@ -1,13 +1,13 @@
 # simpleMacroMaker
 
-simpleMacroMaker je program kojim je moguće simulirati tipkovnicu i miš. U programu se definira lista naredbi koje se sljednim izvršavanjem mogu obavljati razne repetitivne zadatke. Moguće naredbe su:
-- MouseClick - određuje se klik mišem (gumb, broj klikova, mjesto klika) koji će biti izvršen kao da je korišten fizički miš
-- TypeText - određuje se tekst koji će biti upisan kao da je korištena fizička tipkovnica
-- SendHotKey - određuje se kombinacija tikpi koja ce biti izvršena kao da je korištena fizička tipkovnica 
+**simpleMacroMaker** je program kojim je moguće simulirati tipkovnicu i miš. U programu se definira lista naredbi koje se sljednim izvršavanjem mogu obavljati razne repetitivne zadatke. Moguće naredbe su:
+- *MouseClick* - određuje se klik mišem (gumb, broj klikova, mjesto klika) koji će biti izvršen kao da je korišten fizički miš
+- *TypeText* - određuje se tekst koji će biti upisan kao da je korištena fizička tipkovnica
+- *SendHotKey* - određuje se kombinacija tikpi koja ce biti izvršena kao da je korištena fizička tipkovnica 
     - ne preporuča se korištenje više od dvije funkcijske tipke [ctrl, shift, alt, ...]
     - taskmgr - pokreće TaskManager
-- Wait - određuje se vrijeme izraženo u milisekundama koje će program provesti čekajući
-- WaitForPixel - određuje se pixel (x, y) za koji će se vršiti provjera pokazuje li boju (r, g, b), određuje se i vrijeme izraženo u milisekundama nakon kojega će se isponova vršiti provjera pixela
+- *Wait* - određuje se vrijeme izraženo u milisekundama koje će program provesti čekajući
+- *WaitForPixel* - određuje se pixel (x, y) za koji će se vršiti provjera pokazuje li boju (r, g, b), određuje se i vrijeme izraženo u milisekundama nakon kojega će se isponova vršiti provjera pixela
 
 ## Gašenje programa
 
