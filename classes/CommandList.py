@@ -1,10 +1,10 @@
-from MouseClick import MouseClick
-from TypeText import TypeText
-from SendHotKey import SendHotKey
-from Wait import Wait 
-from WaitForPixel import WaitForPixel
+from classes.MouseClick import MouseClick
+from classes.TypeText import TypeText
+from classes.SendHotKey import SendHotKey
+from classes.Wait import Wait 
+from classes.WaitForPixel import WaitForPixel
 
-from MouseListener import MouseListener
+from classes.MouseListener import MouseListener
 import classes.CustomUtilities as CustomUtilities
 
 class CommandList:
