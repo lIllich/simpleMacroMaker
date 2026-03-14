@@ -1,43 +1,33 @@
 # simpleMacroMaker
+**simpleMacroMaker** is a Python program that enables the user to simulate keyboard and mouse actions. The user defines a list of commands that can automate repetitive tasks. Possible commands are:
+- *MouseClick* - defines a mouse click event (button, number of clicks, click position) that will be executed as if a physical mouse were used
+- *TypeText* - defines text that will be entered as if a physical keyboard were used
+- *SendHotKey* - defines a combination of keys that will be executed as if a physical keyboard were used
+    - it is not recommended to use more than two function keys [ctrl, shift, alt, ...]
+    - taskmgr - runs Task Manager
+- *Wait* - defines a time in milliseconds that will make the program wait
+- *WaitForPixel* - defines a pixel at position (x, y) for which a color check will be performed (r, g, b); also defines a time in milliseconds after which the pixel check will repeat
 
-**simpleMacroMaker** je program kojim je moguće simulirati tipkovnicu i miš. U programu se definira lista naredbi koje se sljednim izvršavanjem mogu obavljati razne repetitivne zadatke. Moguće naredbe su:
-- *MouseClick* - određuje se klik mišem (gumb, broj klikova, mjesto klika) koji će biti izvršen kao da je korišten fizički miš
-- *TypeText* - određuje se tekst koji će biti upisan kao da je korištena fizička tipkovnica
-- *SendHotKey* - određuje se kombinacija tikpi koja ce biti izvršena kao da je korištena fizička tipkovnica 
-    - ne preporuča se korištenje više od dvije funkcijske tipke [ctrl, shift, alt, ...]
-    - taskmgr - pokreće TaskManager
-- *Wait* - određuje se vrijeme izraženo u milisekundama koje će program provesti čekajući
-- *WaitForPixel* - određuje se pixel (x, y) za koji će se vršiti provjera pokazuje li boju (r, g, b), određuje se i vrijeme izraženo u milisekundama nakon kojega će se isponova vršiti provjera pixela
-
-## Potrebni moduli
-
+## Required Python Modules
 - mouse
 - keyboard
 - pynput
 - pyautogui
 
-## Gašenje programa
+## Exiting the Program
+The program can be terminated at any point during execution by pressing the **Esc** key.
 
-Program je moguće ugasiti u bilo kojem trenutku izvođenja, pritiskom na tipku **Esc**.
+## Execution Flow
+### 1. Adding Commands to the Execution List
+The user is able to define as many commands as they want and all of them will be executed in the order they were created. Commands can be added until **0** is entered.
 
-## Tijek izvođenja
+### 2. Modifying the Execution List
+In this phase, the user can delete or add a command, or execute the list. Commands can be added or deleted until execution is started.
 
-### 1. Dodavanje naredbi u listu za izvođenje
+### 3. List Execution
+The user defines *timeout* and *iteration*. *Iteration* defines the number of repetitions to be executed. *Timeout* defines the number of seconds after which the *WaitForPixel* command is terminated, as well as the whole program. Lastly, the program waits for a final confirmation to start.
 
-Moguće je odrediti bilo koliko naredbi te će one biti izvršene u poretku u kojem su i postavljane. Naredbe je moguće dodavati dok se ne upiše **0**.
-
-### 2. Modificiranje liste narebi
-
-U ovoj fazi moguće je izbrisati naredbu, dodati novu ili izvršiti listu naredbi. naredbe je moguće dodavati ili brisati dokle god se ne pokrene zvršavanje.
-
-### 3. Izvršavanje liste naredbi
-
-Određujeju se iznosi *timeout* i *itearation*. *Iteration* označava broj koliko puta će lista naredbi iti izvršena. *Timeout* označava broj sekundi nakon kojega će *WaitForPixel* biti zaustavljen kao i cijeli program.
-
-Nakon toga, traži se zadnja potvrda da želimo pokrenuti program.
-
-## Buduće dorade
-
-1. Mogućnost spremanja i otvaranja datoteke koja sadrži postavljene naredbe za izvršavanje.
-2. Izrada grafičkog sučelja
-3. Dodavanje naredbe **Run** - moguće je pokrenuti bilo koji program koji je moguće pokrenuti kroz *Windowsov* **Run** naredbeni redak
+## Future Updates
+1. Ability to save and open a file containing the configured commands
+2. GUI implementation
+3. Adding a **Run** command - enables the user to run any program that can be launched through the Windows Run command-line interface
